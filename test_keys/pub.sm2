@@ -1,0 +1,13 @@
+# openssl命令行生成的公钥
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEnwVIwFafUBEh0antXrQoTV0ov8w1
+11w3Laww9o7CoXkw7711dWa51vHMvFkiv84fjbbDd3vRwn4RVAJumd08gw==
+-----END PUBLIC KEY-----
+
+
+
+# 下载的公钥
+-----BEGIN PUBLIC KEY-----
+MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEex+BLKH39ipPe5ROin3wniJm5/ze
+8M5f2DRBehXwQpu/xctFCiJkqokyREzmueaAUGvWiQhhmCDp/Fy2MqnqIw==
+-----END PUBLIC KEY-----

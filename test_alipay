@@ -1,0 +1,99 @@
+"""
+    views.py
+    ~~~~~~~~
+"""
+from alipay import AliPay
+from django.conf import settings
+
+from django.http import JsonResponse
+from django.views import View
+from rest_framework.response import Response
+from rest_framework.views import APIView
+import os
+
+
+app_priv = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_keys/app_priv.pem')
+alipay_pub = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_keys/alipay_pub.pem')
+subject = '测试订单:001'
+out_trade_no = '2020liuzhiyuan1'
+
+ALIPAY_RETURN_URL = "http://8.129.49.94:8080/payment/status/"
+AppID = '2016102600764185'
+ALIPAY_URL = 'https://openapi.alipaydev.com/gateway.do'
+
+# 沙箱账号: xmdhgu9641@sandbox.com
+# 账号密码: 111111
+
+
+class PaymentStatusView(View):
+
+    def put(self, request):
+        query_dict = request.GET.dict()
+        print('query_dict:', query_dict)
+
+        signature = query_dict.pop('sign')
+
+        alipay = AliPay(
+            appid=AppID,
+            app_notify_url=None,  # 支付成功之后阿里云回调地址
+            app_private_key_path=app_priv,
+            alipay_public_key_path=alipay_pub,
+            sign_type="RSA2",
+            debug=True
+        )
+        # 2、校验参数是否伪造
+        success = alipay.verify(query_dict, signature)
+        if success: # 如果返回是True表示支付成功
+            out_trade_no = query_dict.get('out_trade_no')
+            trade_no = query_dict.get('trade_no')
+            print('out_trade_no:', out_trade_no)
+            print('trade_no:', trade_no)
+            return JsonResponse({
+                'code': 0,
+                'errmsg': 'ok',
+                'trade_id': trade_no
+            })
+
+        return JsonResponse({'code': 400, 'errmsg': '支付失败！'})
+
+# 支付成功后的回调地址: return_URL + query_dict
+# https://www.baidu.com/?charset=utf-8&out_trade_no=2020liuzhiyuan&method=alipay.trade.page.pay.return&total_amount=2.00&sign=d6floOfIh%2BS2%2FuPYoxnvFb852c3JWMYcJEKzjB3sWeEjPIA9Je9JQpUWmjvlYXDLJD3QdvSktqfmGv%2FExmLWrg7rmcePeKDMc3URmA8FQXvV4fIrqrT%2BzQbzMeh4mKgc%2FpD%2FwqTi0MFjldeZOfQuFoAnfifgiRZ1rLqzLhHhGIDXRsDFQqEjzGO3KS32K%2BCQzf1HdU3yGRDWMuiBcTVH%2F1rnI7hSuhk0tdrbXPkGN3lHTmFe1RR0weBiHQMfkahBsFTL%2B6bw6xIJ7uLhhNgAdbXF%2BeaNZ8AQcnXlpJ%2BlOzaxPMQaDGj%2FtslOMuodCnCFpxXpHLcjHKLFn2zNjFQ4Fg%3D%3D&trade_no=2020101322001446140510333217&auth_app_id=2016102600764185&version=1.0&app_id=2016102600764185&sign_type=RSA2&seller_id=2088102181134544&timestamp=2020-10-13+17%3A31%3A04
+
+
+class PaymentView(View):
+
+    def get(self, request):
+
+        alipay = AliPay(
+            appid=AppID,
+            app_notify_url=None,
+            app_private_key_path=app_priv,
+            alipay_public_key_path=alipay_pub,
+            sign_type="RSA2",
+            debug=True
+        )
+
+        query_string = alipay.api_alipay_trade_page_pay(
+            subject=subject,
+            out_trade_no=out_trade_no,
+            total_amount=2.00,
+            return_url=ALIPAY_RETURN_URL
+        )
+
+        alipay_url = ALIPAY_URL + "?" + query_string
+        return JsonResponse({'code': 0, 'errmsg': 'ok', 'alipay_url': alipay_url})
+
+# sign=qBAIUFw2kdIZ7J%2F52Bn6n17jSuu1QZqSTn162NcrEdr08CnGgdIMl6z2%2FVp69dZ2Gsde7SmMbQO3m4nGOdfxxrMm7T%2FGJb0BHKBBCpSQpnZ5%2FonunZ6WMOPHLoZ%2FZyRiYxoEUrgySWtXHpbRnjCEeDaUkjZrnupGwaqufe%2FJa5TvbIE5LuU%2BOS16HSf3BgePjN99Z3FGa6TfAg3BTgf9bVmPwKgRj9J%2FoQSE8q%2Fn7jJJEtsng83D%2BV7CA1cPH8FlFkZYP%2B8HhLjqyYhszLZwyP3zkxuG70wADXlquokA2lBBZtUOE7oS9XMHh0KmbJ2SgzkWb%2BBEcnjOBeUFbyw8pQ%3D%3D
+
+
+"""
+    urls.py
+    ~~~~~~~
+"""
+# from django.urls import re_path
+# from . import views
+#
+# urlpatterns = [
+#     re_path(r'^payment/$', views.PaymentView.as_view()),
+#     re_path(r'^payment/status/$', views.PaymentStatusView.as_view()),
+# ]

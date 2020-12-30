@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="cloud_server" autoUploadExternalChanges="true">
+    <serverData>
+      <paths name="cloud_server">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/zhiyuan/projects/demo" local="$PROJECT_DIR$" />
+            <mapping deploy="/home/zhiyuan/.local/virtualenvs/meiduo/lib/python3.6/site-packages" local="$USER_HOME$/.PyCharm2019.1/system/remote_sources/443891752/-1577677541" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="local_server">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
