@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fdb8a46-422e-4544-bc79-f01a2bab5142" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_jpype.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_sm2/test_jpype.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_sm2/pri.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_sm2/pri_key_pkcs8.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_sm2/pub.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_sm2/pub_key.pem" beforeDir="false" />
+    <list default="true" id="4fdb8a46-422e-4544-bc79-f01a2bab5142" name="Default Changelist" comment="g">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_sm2/test_sm2.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_sm2/test_sm2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +16,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="ProjectId" id="1maTsaTvjQqitwnwLpQkRH0BfBe" />
   <component name="ProjectLevelVcsManager">
@@ -110,38 +106,54 @@
       <option name="presentableId" value="Default" />
       <updated>1609730909129</updated>
       <workItem from="1609730910559" duration="7210000" />
-      <workItem from="1609747766930" duration="7522000" />
+      <workItem from="1609747766930" duration="8836000" />
     </task>
+    <task id="LOCAL-00001" summary="完成sm2密钥的生成, 转码, 与加解密.">
+      <created>1609760913100</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609760913100</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="完成sm2密钥的生成, 转码, 与加解密." />
+    <option name="LAST_COMMIT_MESSAGE" value="完成sm2密钥的生成, 转码, 与加解密." />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="654" y="144" key="CommitChangelistDialog2" timestamp="1609762046654">
+      <screen x="62" y="0" width="1986" height="1152" />
+    </state>
+    <state x="654" y="144" key="CommitChangelistDialog2/62.0.1986.1152@62.0.1986.1152" timestamp="1609762046654" />
     <state x="771" y="294" key="FileChooserDialogImpl" timestamp="1609730953065">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="771" y="294" key="FileChooserDialogImpl/62.0.1858.1080@62.0.1858.1080" timestamp="1609730953065" />
-    <state width="632" height="1045" key="GridCell.Tab.0.bottom" timestamp="1609760506563">
+    <state width="1943" height="238" key="GridCell.Tab.0.bottom" timestamp="1609762113683">
       <screen x="62" y="0" width="1986" height="1152" />
     </state>
     <state width="1815" height="278" key="GridCell.Tab.0.bottom/62.0.1858.1080@62.0.1858.1080" timestamp="1609757447933" />
-    <state width="632" height="1045" key="GridCell.Tab.0.bottom/62.0.1986.1152@62.0.1986.1152" timestamp="1609760506563" />
-    <state width="632" height="1045" key="GridCell.Tab.0.center" timestamp="1609760506562">
+    <state width="1943" height="238" key="GridCell.Tab.0.bottom/62.0.1986.1152@62.0.1986.1152" timestamp="1609762113683" />
+    <state width="1943" height="238" key="GridCell.Tab.0.center" timestamp="1609762113682">
       <screen x="62" y="0" width="1986" height="1152" />
     </state>
     <state width="1815" height="278" key="GridCell.Tab.0.center/62.0.1858.1080@62.0.1858.1080" timestamp="1609757447933" />
-    <state width="632" height="1045" key="GridCell.Tab.0.center/62.0.1986.1152@62.0.1986.1152" timestamp="1609760506562" />
-    <state width="632" height="1045" key="GridCell.Tab.0.left" timestamp="1609760506562">
+    <state width="1943" height="238" key="GridCell.Tab.0.center/62.0.1986.1152@62.0.1986.1152" timestamp="1609762113682" />
+    <state width="1943" height="238" key="GridCell.Tab.0.left" timestamp="1609762113682">
       <screen x="62" y="0" width="1986" height="1152" />
     </state>
     <state width="1815" height="278" key="GridCell.Tab.0.left/62.0.1858.1080@62.0.1858.1080" timestamp="1609757447933" />
-    <state width="632" height="1045" key="GridCell.Tab.0.left/62.0.1986.1152@62.0.1986.1152" timestamp="1609760506562" />
-    <state width="632" height="1045" key="GridCell.Tab.0.right" timestamp="1609760506563">
+    <state width="1943" height="238" key="GridCell.Tab.0.left/62.0.1986.1152@62.0.1986.1152" timestamp="1609762113682" />
+    <state width="1943" height="238" key="GridCell.Tab.0.right" timestamp="1609762113683">
       <screen x="62" y="0" width="1986" height="1152" />
     </state>
     <state width="1815" height="278" key="GridCell.Tab.0.right/62.0.1858.1080@62.0.1858.1080" timestamp="1609757447933" />
-    <state width="632" height="1045" key="GridCell.Tab.0.right/62.0.1986.1152@62.0.1986.1152" timestamp="1609760506563" />
+    <state width="1943" height="238" key="GridCell.Tab.0.right/62.0.1986.1152@62.0.1986.1152" timestamp="1609762113683" />
     <state width="632" height="1045" key="GridCell.Tab.1.bottom" timestamp="1609760430052">
       <screen x="62" y="0" width="1986" height="1152" />
     </state>
@@ -185,6 +197,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/demo$test_jpype.coverage" NAME="test_jpype Coverage Results" MODIFIED="1609747942251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_sm2" />
-    <SUITE FILE_PATH="coverage/demo$test_sm2.coverage" NAME="test_sm2 Coverage Results" MODIFIED="1609760330391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_sm2" />
+    <SUITE FILE_PATH="coverage/demo$test_sm2.coverage" NAME="test_sm2 Coverage Results" MODIFIED="1609762113678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test_sm2" />
   </component>
 </project>

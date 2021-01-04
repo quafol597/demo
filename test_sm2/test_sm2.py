@@ -46,10 +46,11 @@ def key_to_pem(keys: dict) -> (str, str):
         buff2.append(key2[i * 64:(i + 1) * 64])
     pri_key_pem = '-----BEGIN PRIVATE KEY-----\n' + '\n'.join(buff2) + '-----END PRIVATE KEY-----'
 
-    return (pub_key_pem, pri_key_pem)
+    return pub_key_pem, pri_key_pem
 
 
 def get_keys(pub_pem, pri_pem):
+    """return 16进制密钥对"""
     # with open(pri, 'r', encoding='utf-8') as f:
     #     pri_str = ''.join(f.readlines()[1:-1]).replace('\n', '')
     #     pri_key = base64.b64decode(pri_str.encode()).decode()
@@ -73,28 +74,28 @@ class Sm2Algorithm(object):
         self.pri_key = pri_key
         self.sm2_crypt = sm2.CryptSM2(public_key=pub_key, private_key=pri_key)
 
-    def encrypt_decrypt(self, message: str):
+    def encrypt_decrypt(self, msg: str):
         """加密和解密"""
         # 加密
-        buff = self.sm2_crypt.encrypt(message.encode())
-        ciphertext = base64.b64encode(buff).decode()
-        print('ciphertext:', ciphertext)
-        ciphertext = 'hahahah'
+        buff = self.sm2_crypt.encrypt(msg.encode())
+        cipher_text = base64.b64encode(buff).decode()
+        print('cipher_text:', cipher_text)
+        cipher_text = 'hehe'
         # 解密
         try:
-            message = self.sm2_crypt.decrypt(base64.b64decode(ciphertext))
-        except binascii.Error:
-            print("解密失败")
-            return
-        print('message:', message.decode())
+            msg = self.sm2_crypt.decrypt(base64.b64decode(cipher_text))
+        except Exception:
+            return print("解密失败")
 
-    def sign_verify(self, message: str):
+        print('message:', msg.decode())
+
+    def sign_verify(self, msg: str):
         """签名和验签"""
         k = func.random_hex(self.sm2_crypt.para_len)  # 生成随机数
-        sign = self.sm2_crypt.sign(message.encode(), k)  # 十六进制签名
+        sign = self.sm2_crypt.sign(msg.encode(), k)  # 十六进制签名
         print('sign:', sign)
 
-        b = self.sm2_crypt.verify(sign, message.encode())
+        b = self.sm2_crypt.verify(sign, msg.encode())
         print('verify:', b)
 
 
@@ -107,10 +108,10 @@ if __name__ == '__main__':
     #     f.write(pri_pem)
 
     message = '这是一条信息'
-    pub_key, pri_key = get_keys(pub_pem, pri_pem)
-    print('pub_key:', pub_key)
-    print('pri_key:', pub_key)
-    sm2 = Sm2Algorithm(pub_key, pri_key)
+    pub_hex_key, pri_hex_key = get_keys(pub_pem, pri_pem)
+    print('pub_key:', pub_hex_key)
+    print('pri_key:', pub_hex_key)
+    sm2 = Sm2Algorithm(pub_hex_key, pri_hex_key)
 
-    sm2.encrypt_decrypt(message)
-    sm2.sign_verify(message)
+    sm2.encrypt_decrypt(msg=message)
+    sm2.sign_verify(msg=message)
