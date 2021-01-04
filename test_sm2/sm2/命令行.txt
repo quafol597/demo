@@ -1,0 +1,2 @@
+// win  : java -cp sm2-1.0-SNAPSHOT.jar;C:\Users\xiaoan\Desktop\sm2\lib\* com.xiaoantimes.commons.App
+// linux: java -cp sm2-1.0-SNAPSHOT.jar:/data/sm2/lib/* com.xiaoantimes.commons.App
