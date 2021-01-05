@@ -49,7 +49,7 @@ def key_to_pem(keys: dict) -> (str, str):
     return pub_key_pem, pri_key_pem
 
 
-def get_keys(pub_pem, pri_pem):
+def get_keys(pub_pem: str, pri_pem: str):
     """return 16进制密钥对"""
     # with open(pri, 'r', encoding='utf-8') as f:
     #     pri_str = ''.join(f.readlines()[1:-1]).replace('\n', '')
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     message = '这是一条信息'
     pub_hex_key, pri_hex_key = get_keys(pub_pem, pri_pem)
     print('pub_key:', pub_hex_key)
-    print('pri_key:', pub_hex_key)
+    print('pri_key:', pri_hex_key)
     sm2 = Sm2Algorithm(pub_hex_key, pri_hex_key)
 
     sm2.encrypt_decrypt(msg=message)

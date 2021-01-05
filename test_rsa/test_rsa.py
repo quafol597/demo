@@ -7,17 +7,17 @@ def generate_keys():
     pub_key, pri_key = rsa.newkeys(2048)
     pubkey_str = pub_key.save_pkcs1().decode()
     prikey_str = pri_key.save_pkcs1().decode()
-    with open('test_keys/public.pem', 'w', encoding='utf-8') as f:  # win系统环境下也可以兼容 / 目录分隔符
+    with open('test_rsa/public.pem', 'w', encoding='utf-8') as f:  # win系统环境下也可以兼容 / 目录分隔符
         f.write(pubkey_str)
-    with open('test_keys/private.pem', 'w', encoding='utf-8') as f:
+    with open('test_rsa/private.pem', 'w', encoding='utf-8') as f:
         f.write(prikey_str)
 
 
 def get_keys():
     """获取公私钥对象"""
-    with open('test_keys/public.pem', 'r', encoding='utf-8') as f:
+    with open('test_rsa/public.pem', 'r', encoding='utf-8') as f:
         pubkey_str = f.read()
-    with open('test_keys/private.pem', 'r', encoding='utf-8') as f:
+    with open('test_rsa/private.pem', 'r', encoding='utf-8') as f:
         private_str = f.read()
 
     pubkey = rsa.PublicKey.load_pkcs1(pubkey_str.encode())

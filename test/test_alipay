@@ -12,8 +12,8 @@ from rest_framework.views import APIView
 import os
 
 
-app_priv = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_keys/app_priv.pem')
-alipay_pub = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_keys/alipay_pub.pem')
+app_priv = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_rsa/app_priv.pem')
+alipay_pub = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'test_rsa/alipay_pub.pem')
 subject = '测试订单:001'
 out_trade_no = '2020liuzhiyuan1'
 

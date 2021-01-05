@@ -24,5 +24,11 @@
         <property name="enable_load_extension" value="true" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="db [2]" uuid="d0754308-a848-4c3b-9174-6009df34118e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\xiaoan\Desktop\demo\db.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>
