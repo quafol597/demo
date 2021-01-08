@@ -45,7 +45,7 @@ class GateWayView(APIView):
 
         # <1> 验签
         body_str = request.data.get('body')
-        signature = request.data.get('signature')
+        signature = request.data.get('signature_x')
         body = json.loads(body_str)
 
         app_id = body.get('app_id')
@@ -62,7 +62,7 @@ class GateWayView(APIView):
         if not apiutils.verify(body, signature):
             return Response({'msg': '验签失败'})
 
-        # <2> 构造响应 -> {'body': body, 'signature': 'alsdkfjlaskjdf'}
+        # <2> 构造响应 -> {'body': body, 'signature_x': 'alsdkfjlaskjdf'}
         # body = {'app_id': '202010140123456',
         #         'charset': 'utf-8',
         #         'sign_type': 'RSA2',
@@ -75,7 +75,7 @@ class GateWayView(APIView):
         method = body.get('method')
         if method == 'api_apiutils_books':
             result, signature = self.api_apiutils_books(apiutils)
-            return Response({'result': result, 'signature': signature})
+            return Response({'result': result, 'signature_x': signature})
 
     def api_apiutils_books(self, apiutils):
         from book_hero.models import BookInfo

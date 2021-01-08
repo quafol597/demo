@@ -15,9 +15,9 @@ def generate_keys():
 
 def get_keys():
     """获取公私钥对象"""
-    with open('test_rsa/public.pem', 'r', encoding='utf-8') as f:
+    with open('public.pem', 'r', encoding='utf-8') as f:
         pubkey_str = f.read()
-    with open('test_rsa/private.pem', 'r', encoding='utf-8') as f:
+    with open('private.pem', 'r', encoding='utf-8') as f:
         private_str = f.read()
 
     pubkey = rsa.PublicKey.load_pkcs1(pubkey_str.encode())
@@ -28,11 +28,12 @@ def get_keys():
 
 def encrypt_decrypt(message, pub_key, pri_key):
     # <1> 加密
-    buff = rsa.encrypt(message.encode(), pub_key)
-    encry = base64.b64encode(buff).decode()
-    print('encry:', encry)
+    origin_cipher = rsa.encrypt(message.encode(), pub_key)
+    print('origin_cipher:', origin_cipher)
+    cipher_text = base64.b64encode(origin_cipher).decode()
+    print('cipher_text:', cipher_text)
     # <2> 解密
-    message2 = rsa.decrypt(base64.b64decode(encry), pri_key).decode()
+    message2 = rsa.decrypt(base64.b64decode(cipher_text), pri_key).decode()
     print('message2:', message2)
 
 
@@ -61,9 +62,10 @@ def signature_verify(message, pub_key, pri_key):
 if __name__ == '__main__':
     # generate_keys()
     pub_key, pri_key = get_keys()
-    message = '密码-hahaha'
-    encrypt_decrypt(message, pub_key, pri_key)
-    signature_verify(message, pub_key, pri_key)
+    message1 = '密码-hahaha'
+    print('message1:', message1)
+    encrypt_decrypt(message1, pub_key, pri_key)
+    signature_verify(message1, pub_key, pri_key)
 
 
 """

@@ -21,7 +21,7 @@ class BookView(APIView):
         content = apiutils.api_apiutils_books(subject='得到所有图书')
 
         result = content['result']
-        signature = content['signature']
+        signature = content['signature_x']
 
         if apiutils.verify(result, signature):
             return Response({'result': result})

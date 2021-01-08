@@ -31,7 +31,7 @@
    	<3> 返回content字典, PS:
    		content = {
    			"result": ...,  # 小安响应数据
-   			"signature": ...  # 小安签名, 用于self.verify函数验签
+   			"signature_x": ...  # 小安签名, 用于self.verify函数验签
    		}
    """
    ```
@@ -40,7 +40,7 @@
 
    ```python
    result = content['result']
-   signature = content['signature']
+   signature = content['signature_x']
    
    apiutils.verify(result, signature)  
    """

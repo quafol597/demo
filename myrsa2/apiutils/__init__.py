@@ -84,7 +84,7 @@ class APIUtils(object):
         方法2
             key = RSA.importKey(open(self._app_private_key_path).read())
             signer = PKCS1_v1_5.new(key)
-            signature = signer.sign(SHA.new(unsigned_string.encode()))
+            signature_x = signer.sign(SHA.new(unsigned_string.encode()))
             sign = base64.b64encode(sign).decode().
         方法3
             echo "abc" | openssl sha1 -sign alipay.key | openssl base64
@@ -159,7 +159,7 @@ class APIUtils(object):
             <3> 返回content字典, PS:
                 content = {
                     "result": ...,  # 小安响应数据
-                    "signature": ...  # 小安签名, 用于self.verify函数验签
+                    "signature_x": ...  # 小安签名, 用于self.verify函数验签
                 }
         """
         biz_content = {"subject": subject,}
@@ -177,7 +177,7 @@ class APIUtils(object):
     def send_request(self, body, signature):
         import requests
         gateway_url = 'http://127.0.0.1:8000/dev/gateway/'
-        data = {'body': json.dumps(body), 'signature': signature}
+        data = {'body': json.dumps(body), 'signature_x': signature}
         response = requests.post(url=gateway_url, data=data)
         content = response.content.decode()
         # content 包含result和signature两个字段, type: json_str

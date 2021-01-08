@@ -27,4 +27,3 @@ def get_hex_keys(basedir):
 
 if __name__ == '__main__':
     get_hex_keys(basedir=r"C:\Users\xiaoan\Desktop\sm2")
-
