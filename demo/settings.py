@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'demo',
         'USER': 'zhiyuan',
-        'PASSWORD': 'chuanzhi',
+        'PASSWORD': 'Chuanzhi597.',
         'HOST': '8.129.49.94',
         'PORT': 5432,
         'OPTIONS': {'options': '-c search_path=public'},  # 连接PG数据库指定模式 - public
