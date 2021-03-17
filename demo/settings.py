@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,13 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myrsa2',
     'book_hero',
-    'enterprise',
-    # 'django_celery_results',
-    # 'django_celery_beat',
-
-
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -85,12 +82,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'demo',
         'USER': 'zhiyuan',
-        'PASSWORD': 'zhiyuan',
+        'PASSWORD': 'chuanzhi',
         'HOST': '8.129.49.94',
         'PORT': 5432,
-        'OPTIONS': {'options': '-c search_path=seco'},  # 连接PG数据库指定模式 - seco
-        'ATOMIC_REQUESTS': True,  # 开启全局事务处理
-        'CONN_MAX_AGE': 100,  # 最长链接时间，具体需要dba测试，没有标准
+        'OPTIONS': {'options': '-c search_path=public'},  # 连接PG数据库指定模式 - public
     }
 
 }
@@ -149,22 +144,12 @@ STATIC_URL = '/static/'
 #     },
 # }
 
-
-# celery配置
-CELERY_BROKER_URL = "redis://127.0.0.1:6379/1"
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_CACHE_BACKEND = 'default'
-CELERY_TIMEZONE = 'Asia/Shanghai'
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+AUTH_USER_MODEL = "user.User"
 
 
-
-
-
-
-
-
-
+APP_ID = 'wx62fabbf01f984b15'
+APP_SECRET = '9b83631ceec6206174263998d594a19b'
+TOKEN = '50c7070faef8ff5515ca991bba9971d7'
 
 
 
